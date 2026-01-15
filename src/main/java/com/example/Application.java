@@ -77,6 +77,14 @@ public class Application implements CommandLineRunner{
         //===========================================================
         
         
+        //========================= d ========================================
+        System.out.println("\n--- Afisare dupa material\nIntroduceti materialul");
+        String materialCautat = scanner.nextLine();
+        long nrPiese = repository.findByMaterial(materialCautat).size();
+        System.out.println("Numarul de piese din materialul " + materialCautat + " este: " + nrPiese);
+        
+        
+        
     }
 
 }
