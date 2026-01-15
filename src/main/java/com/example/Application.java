@@ -58,6 +58,24 @@ public class Application implements CommandLineRunner{
         
         //==========================================================
         
+        //========================= c ==============================
+        // c) Ștergere piesă după cod
+        System.out.println("\n--- Punctul C: Stergere piesa dupa cod ---");
+        System.out.print("Introduceti codul piesei de sters: ");
+        int codSters = Integer.parseInt(scanner.nextLine());
+
+        if (repository.existsById(codSters)) {
+            repository.deleteById(codSters);
+            System.out.println("Piesa cu codul " + codSters + " a fost stearsa.");
+        } else {
+            System.out.println("Eroare: Piesa cu codul " + codSters + " nu exista in tabel.");
+        }
+
+        // Afișare finală pentru verificare
+        System.out.println("\nLista finala:");
+        repository.findAll().forEach(System.out::println);
+        //===========================================================
+        
         
     }
 
