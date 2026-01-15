@@ -82,6 +82,23 @@ public class Application implements CommandLineRunner{
         String materialCautat = scanner.nextLine();
         long nrPiese = repository.findByMaterial(materialCautat).size();
         System.out.println("Numarul de piese din materialul " + materialCautat + " este: " + nrPiese);
+        //====================================================================
+        
+        //========================== e ======================================
+     // e) Filtrare după denumire, material și culoare
+        System.out.println("\n--- Punctul E: Filtrare complexa ---");
+        System.out.print("Denumire cautata: ");
+        String fDen = scanner.nextLine();
+        System.out.print("Material cautat: ");
+        String fMat = scanner.nextLine();
+        System.out.print("Culoare cautata: ");
+        String fCul = scanner.nextLine();
+        
+        repository.findAll().stream()
+                .filter(p -> p.getDenumire().equalsIgnoreCase(fDen) && 
+                             p.getMaterial().equalsIgnoreCase(fMat) && 
+                             p.getCuloare().equalsIgnoreCase(fCul))
+                .forEach(System.out::println);
         
         
         
